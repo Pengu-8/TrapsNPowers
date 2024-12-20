@@ -1,0 +1,10 @@
+# ninja log v6
+13	392	7564023142837723	CMakeFiles/untitled1.dir/main.cpp.obj	a6354961e138ff12
+23	395	7564022930753114	CMakeFiles/untitled1.dir/player.cpp.obj	b243add0973f6b67
+392	497	7564023146635189	untitled1.exe	6ae3c4e15bbaa6ad
+26	324	7564023142972584	CMakeFiles/untitled1.dir/trap.cpp.obj	3cd6d8f6689ca323
+20	354	7564023142912577	CMakeFiles/untitled1.dir/board.cpp.obj	6a954a6b7cbea703
+21	326	7564030311102504	CMakeFiles/untitled1.dir/trap.cpp.obj	3cd6d8f6689ca323
+13	351	7564030311017379	CMakeFiles/untitled1.dir/main.cpp.obj	a6354961e138ff12
+26	398	7564030311152891	CMakeFiles/untitled1.dir/game.cpp.obj	dd0de8e26f9ed931
+399	507	7564030314879737	untitled1.exe	bab96cb096d74fb7
