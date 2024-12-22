@@ -12,7 +12,7 @@
 class Game {
     std::list<Player> player_list;
     bool winner = false;
-    Board board = Board(5);
+    Board board = Board(10);
 public:
     Game();
     void ask_players();

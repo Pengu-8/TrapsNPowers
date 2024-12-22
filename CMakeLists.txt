@@ -12,4 +12,6 @@ add_executable(untitled1 main.cpp
         trap.h
         game.cpp
         game.h
+        power.cpp
+        power.h
 )
