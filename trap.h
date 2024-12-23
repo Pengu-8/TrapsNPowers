@@ -5,6 +5,7 @@
 #ifndef TRAP_H
 #define TRAP_H
 #include <iostream>
+#include "player.h"
 
 
 class Trap {

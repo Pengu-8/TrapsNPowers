@@ -17,7 +17,6 @@ void Game::ask_players() {
         if (cin.fail()) {
             cin.clear();
             cin.ignore();
-            // cout 3<< "Please enter a number between 1-4:"<<endl;
         }
         else if (no_players < 1 || no_players > 4) {
             cout << "Invalid number of players."<<endl;
@@ -31,39 +30,42 @@ void Game::ask_players() {
         player_list.push_back(player);
     }
 }
+void Game::roll_dice() {
+    Player current_player = player_list.front();
+    cout << "Click enter to roll the dice" << endl;
+    cin.get();
+    int dice_roll = rand() % 6 + 1;
+    cout << "Rolled " << dice_roll << endl;
+    current_player.position += dice_roll;
+    cout << "Player: " << current_player.name<< ", Position: " << current_player.position<< endl;
+}
+void Game::check_board() {
+    while (trap_hit) {
+        trap_hit = false;
+        for (Trap traps : board.trap_location) {
+            if (current_player.position == traps.position) {
+                cout << current_player.name << " stepped on a trap" << endl;
+                current_player.position -= traps.trap;
+                if (current_player.position < 0) {
+                    current_player.position = 0;
+                }
+                cout << "Player: " << current_player.name<< ", Position: " << current_player.position<< endl;
+                trap_hit = true;
+                break;
+            }
+        }
+    }
+}
+
 void Game::play_game() {
     while (not winner) {
-        Player current_player = player_list.front();
-        cout << "Click enter to roll the dice" << endl;
-        cin.ignore();
-        int dice_roll = rand() % 6 + 1;
-        cout << "Rolled" << dice_roll << endl;
-        current_player.position += dice_roll;
-        cout << "Player: " << current_player.name<< ", Position: " << current_player.position<< endl;
+        roll_dice();
         if (current_player.position > 100) {
             winner = true;
             cout << current_player.name << " wins!" << endl;
+            break;
         }
-        bool is_position_trap = true;
-        Trap last;
-        while (is_position_trap) {
-            for (Trap traps : board.trap_location) {
-                if (current_player.position == traps.position) {
-                    cout << current_player.name << " stepped on a trap" << endl;
-                    current_player.position -= traps.trap;
-                    if (current_player.position < 0) {
-                        current_player.position = 0;
-                    }
-                    cout << "Player: " << current_player.name<< ", Position: " << current_player.position<< endl;
-                    is_position_trap = true;
-                    break;
-                }
-                last = traps;
-            }
-            if (last.position == board.trap_location.back().position) {
-                is_position_trap = false;
-            }
-        }
+        check_board();
         player_list.push_back(current_player);
         player_list.pop_front();
 
