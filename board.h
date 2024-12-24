@@ -1,7 +1,7 @@
 //
 // Created by 123ye on 20/12/2024.
 //
-
+// #pragma once
 #ifndef BOARD_H
 #define BOARD_H
 #include <list>

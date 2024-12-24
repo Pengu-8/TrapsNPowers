@@ -5,7 +5,7 @@
 #include "game.h"
 using namespace std;
 
-Game::Game() {
+Game::Game():board(10,10) {
     ask_players();
     play_game();
 }

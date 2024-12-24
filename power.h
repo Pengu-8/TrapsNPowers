@@ -14,7 +14,7 @@ public:
     int double_pos = 2;
     int triple_pos = 3;
     int position = rand() % 99 + 1;
-    int selection = rand() % 5;
+    int selection = rand() % 4;
     void power_move(Player player);
 };
 

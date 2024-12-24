@@ -5,14 +5,14 @@
 #ifndef GAME_H
 #define GAME_H
 #include <list>
+#include "power.h"
 #include "board.h"
 #include "player.h"
-#include "power.h"
 
 class Game {
     std::list<Player> player_list;
     bool winner = false;
-    Board board = Board(10,10);
+    Board board;
     bool trap_hit = true;
     Player current_player = player_list.front();
 public:

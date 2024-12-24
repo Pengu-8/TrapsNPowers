@@ -15,7 +15,5 @@ switch(selection) {
         void Game::check_board();
     case 3:
         std::cout << "case 3" << std::endl;
-    case 4:
-        std::cout << "case 4" << std::endl;
 }
 }
