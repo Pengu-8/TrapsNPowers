@@ -6,16 +6,13 @@
 #define POWER_H
 #include <iostream>
 #include "player.h"
-#include "game.h"
-
 
 class Power {
 public:
-    int double_pos = 2;
-    int triple_pos = 3;
+    int triple_dice = 2;
     int position = rand() % 99 + 1;
-    int selection = rand() % 4;
-    void power_move(Player player);
+    int selection = rand() % 2;
+    void power_move(Player player, int dice_roll);
 };
 
 
