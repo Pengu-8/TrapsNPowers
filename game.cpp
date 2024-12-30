@@ -39,9 +39,7 @@ void Game::check_board(int dice_roll, Player current_player) {
             if (current_player.position == traps.position) {
                 cout << current_player.name << " stepped on a trap" << endl;
                 current_player.position -= traps.trap;
-                if (current_player.position < 0) {
-                    current_player.position = 0;
-                }
+                current_player.position = std::max(0,current_player.position);
                 cout << "Player: " << current_player.name<< ", Position: " << current_player.position<< endl;
                 tile_hit = true;
                 break;
@@ -73,6 +71,8 @@ void Game::check_board(int dice_roll, Player current_player) {
         }
     }
     tile_hit = true;
+    player_list.push_back(current_player);
+    player_list.pop_front();
 }
 void Game::play_game() {
     while (not winner) {
@@ -88,7 +88,5 @@ void Game::play_game() {
             cout << current_player.name << " wins!" << endl;
         }
         check_board(dice_roll, current_player);
-        player_list.push_back(current_player);
-        player_list.pop_front();
     }
 }
